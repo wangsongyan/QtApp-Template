@@ -165,7 +165,7 @@ jobs:
         key: ${{runner.os}}-qtcachedir-${{env.QT_VERSION}}
 
     - name: '⚙️ Install Qt'
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with:
         version: ${{env.QT_VERSION}}
         modules: ${{env.QT_MODULES}}
@@ -202,7 +202,7 @@ jobs:
         ren *.exe ${{env.EXECUTABLE}}-${{env.VERSION}}-Windows.exe
 
     - name: '📤 Upload artifact: NSIS installer'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Windows.exe
         path: deploy/windows/nsis/${{env.EXECUTABLE}}-${{env.VERSION}}-Windows.exe
@@ -217,7 +217,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: '📥 Download artifacts'
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
       - name: '🗂 Inspect directory after downloading artifacts'
         run: ls -alFR
       - name: '🚀 Create release and upload artifacts'
