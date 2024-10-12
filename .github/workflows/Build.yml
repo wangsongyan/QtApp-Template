@@ -52,7 +52,7 @@ jobs:
         key: ${{runner.os}}-qtcachedir-${{env.QT_VERSION}}
 
     - name: '⚙️ Install Qt'
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with:
         version: ${{env.QT_VERSION}}
         modules: ${{env.QT_MODULES}}
@@ -89,7 +89,7 @@ jobs:
         mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
           
     - name: '📤 Upload artifact: AppImage'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
         path: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
@@ -113,7 +113,7 @@ jobs:
         key: ${{runner.os}}-qtcachedir-${{env.QT_VERSION}}
 
     - name: '⚙️ Install Qt'
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with:
         version: ${{env.QT_VERSION}}
         modules: ${{env.QT_MODULES}}
@@ -135,7 +135,7 @@ jobs:
         ditto -c -k --sequesterRsrc --keepParent "${{env.EXECUTABLE}}.app" ${{env.EXECUTABLE}}-${{env.VERSION}}-macOS.zip
 
     - name: '📤 Upload artifact: ZIP'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{env.EXECUTABLE}}-${{env.VERSION}}-macOS.zip
         path: ${{env.EXECUTABLE}}-${{env.VERSION}}-macOS.zip
